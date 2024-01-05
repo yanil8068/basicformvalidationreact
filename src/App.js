@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+
 
 function App() {
+  const [name, setname] = useState("");
+  const [tnc, settnc] = useState(false);
+  const [interest, setinterest] = useState("");
+  const [pass, setpass] = useState("");
+ 
+  function getformdata(e){
+   
+e.preventDefault();
+console.log(name,tnc,interest,pass);
+
+  }
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Handle form in react</h1>
+      <form onSubmit={getformdata}>
+        <input type="text" placeholder='enter name' onChange={(e)=>setname(e.target.value)}/><br /><br />
+        <select onChange={(e)=>setinterest(e.target.value)}>
+          <option>
+       choose options
+          </option>
+          <option>
+            marvel
+          </option>
+          <option>
+           dc
+          </option>
+        </select><br /><br />
+        <input type='checkbox' onChange={(e)=>settnc(e.target.checked)}/><span>Accept terms and conditions</span><br /><br />
+        <input type="password"  onChange={(e)=>setpass(e.target.value)}/><br /><br />
+        <button type='submit'>Submit</button>
+      </form>
     </div>
   );
 }
