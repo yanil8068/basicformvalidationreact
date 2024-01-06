@@ -8,6 +8,7 @@ function App() {
   const [tnc, settnc] = useState(false);
   const [interest, setinterest] = useState("");
   const [pass, setpass] = useState("");
+  const [status, setStatus] = useState(true);
  
   function getformdata(e){
    
@@ -19,6 +20,10 @@ console.log(name,tnc,interest,pass);
 
   return (
     <div className="App">
+      {
+        status?<h1>hello world</h1>:null
+      }
+      <button onClick={()=>setStatus(!status)}>Toggle</button>
       <h1>Handle form in react</h1>
       <form onSubmit={getformdata}>
         <input type="text" placeholder='enter name' onChange={(e)=>setname(e.target.value)}/><br /><br />
