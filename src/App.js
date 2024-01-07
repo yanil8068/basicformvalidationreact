@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
-
+import Counter from './components/Counter';
+import { useContext } from 'react';
+import { ConterContext } from './context/Counter';
 
 function App() {
   const [name, setname] = useState("");
@@ -9,7 +11,8 @@ function App() {
   const [interest, setinterest] = useState("");
   const [pass, setpass] = useState("");
   const [status, setStatus] = useState(true);
- 
+ const counterState = useContext(ConterContext);
+ console.log(counterState)
   function getformdata(e){
    
 e.preventDefault();
@@ -42,6 +45,13 @@ console.log(name,tnc,interest,pass);
         <input type="password"  onChange={(e)=>setpass(e.target.value)}/><br /><br />
         <button type='submit'>Submit</button>
       </form>
+<h1>Count is {counterState.count}</h1>
+<Counter/>
+<Counter/>
+<Counter/>
+<Counter/>
+
+
     </div>
   );
 }
