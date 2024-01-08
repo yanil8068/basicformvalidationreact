@@ -4,6 +4,7 @@ import {useState} from "react";
 import Counter from './components/Counter';
 import { useContext } from 'react';
 import { ConterContext } from './context/Counter';
+import Navbar from './navbar';
 
 function App() {
   const [name, setname] = useState("");
@@ -11,6 +12,7 @@ function App() {
   const [interest, setinterest] = useState("");
   const [pass, setpass] = useState("");
   const [status, setStatus] = useState(true);
+  const [val, setVal] = useState(null);
  const counterState = useContext(ConterContext);
  console.log(counterState)
   function getformdata(e){
@@ -18,11 +20,14 @@ function App() {
 e.preventDefault();
 console.log(name,tnc,interest,pass);
 
+
+
   }
  
 
   return (
     <div className="App">
+      <Navbar/>
       {
         status?<h1>hello world</h1>:null
       }
@@ -44,6 +49,7 @@ console.log(name,tnc,interest,pass);
         <input type='checkbox' onChange={(e)=>settnc(e.target.checked)}/><span>Accept terms and conditions</span><br /><br />
         <input type="password"  onChange={(e)=>setpass(e.target.value)}/><br /><br />
         <button type='submit'>Submit</button>
+        <p>{val}</p>
       </form>
 <h1>Count is {counterState.count}</h1>
 <Counter/>
