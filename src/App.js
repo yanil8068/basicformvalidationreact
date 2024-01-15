@@ -28,7 +28,7 @@ console.log(name,tnc,interest,pass);
   return (
     <div className="App">
       <Navbar/>
-      
+      <Navbar/>
       {
         status?<h1>hello world</h1>:null
       }
